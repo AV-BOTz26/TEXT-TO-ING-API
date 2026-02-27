@@ -1,15 +1,16 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 import requests
-import os
 
 app = FastAPI()
 
-GPU_SERVER = "https://your-runpod-endpoint"
+GPU_SERVER = "https://your-runpod-url"
 
-@app.post("/generate")
-async def generate(req: Request):
+@app.get("/")
+def home():
+    return {"status": "API Working"}
 
-    data = await req.json()
+@app.post("/")
+async def generate(data: dict):
 
     response = requests.post(
         f"{GPU_SERVER}/sdapi/v1/txt2img",
