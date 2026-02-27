@@ -3,7 +3,7 @@ import requests
 
 app = FastAPI()
 
-GPU_SERVER = "https://your-runpod-url"
+GPU_SERVER = "https://text-to-ing-api.vercel.app"
 
 @app.get("/")
 def home():
